@@ -5,16 +5,6 @@
  * */
 package info.androidhive.loginandregistration;
 
-import info.androidhive.loginandregistration.app.AppConfig;
-import info.androidhive.loginandregistration.app.AppController;
-import info.androidhive.loginandregistration.helper.SessionManager;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -29,6 +19,16 @@ import com.android.volley.Request.Method;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import info.androidhive.loginandregistration.app.AppConfig;
+import info.androidhive.loginandregistration.app.AppController;
+import info.androidhive.loginandregistration.helper.SessionManager;
 
 public class LoginActivity extends Activity {
 	// LogCat tag
@@ -181,4 +181,9 @@ public class LoginActivity extends Activity {
 		if (pDialog.isShowing())
 			pDialog.dismiss();
 	}
+    public void sendMessage2(View view)
+    {
+        Intent intent = new Intent(LoginActivity.this, ScanBarcode.class);
+        startActivity(intent);
+    }
 }

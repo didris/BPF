@@ -79,9 +79,5 @@ public class MainActivity extends Activity {
         intent = new Intent(MainActivity.this, MainScreenActivity.class);
         startActivity(intent);
     }
-    public void sendMessage2(View view)
-    {
-        Intent intent = new Intent(MainActivity.this, ScanBarcode.class);
-        startActivity(intent);
-    }
+
 }

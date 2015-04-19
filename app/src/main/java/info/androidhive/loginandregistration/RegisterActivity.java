@@ -5,17 +5,6 @@
  * */
 package info.androidhive.loginandregistration;
 
-import info.androidhive.loginandregistration.app.AppConfig;
-import info.androidhive.loginandregistration.app.AppController;
-import info.androidhive.loginandregistration.helper.SQLiteHandler;
-import info.androidhive.loginandregistration.helper.SessionManager;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -24,12 +13,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.Request.Method;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import info.androidhive.loginandregistration.app.AppConfig;
+import info.androidhive.loginandregistration.app.AppController;
+import info.androidhive.loginandregistration.helper.SQLiteHandler;
+import info.androidhive.loginandregistration.helper.SessionManager;
 
 public class RegisterActivity extends Activity {
 	private static final String TAG = RegisterActivity.class.getSimpleName();
@@ -41,7 +43,10 @@ public class RegisterActivity extends Activity {
 	private ProgressDialog pDialog;
 	private SessionManager session;
 	private SQLiteHandler db;
-
+    private RadioGroup type;
+    private RadioButton vendor;
+    private RadioButton customer;
+    private int selectedValueId;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,8 +55,12 @@ public class RegisterActivity extends Activity {
 		inputFullName = (EditText) findViewById(R.id.name);
 		inputEmail = (EditText) findViewById(R.id.email);
 		inputPassword = (EditText) findViewById(R.id.password);
+
 		btnRegister = (Button) findViewById(R.id.btnRegister);
 		btnLinkToLogin = (Button) findViewById(R.id.btnLinkToLoginScreen);
+        type=(RadioGroup)findViewById(R.id.type);
+        vendor=(RadioButton)findViewById(R.id.vendor);
+        customer=(RadioButton)findViewById(R.id.customer);
 
 		// Progress dialog
 		pDialog = new ProgressDialog(this);
@@ -78,14 +87,29 @@ public class RegisterActivity extends Activity {
 				String name = inputFullName.getText().toString();
 				String email = inputEmail.getText().toString();
 				String password = inputPassword.getText().toString();
-
-				if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
-					registerUser(name, email, password);
+                String usertype="";
+                //getting the id of selected radio button
+                selectedValueId = type.getCheckedRadioButtonId();
+                //checking the id of the selected radio
+                if(selectedValueId == vendor.getId())
+                {
+                    usertype = "vendor";
+                }
+                else
+                {
+                    usertype ="customer";
+                }
+               /* Integer id = type.getId();
+                String usertype= id.toString();*/
+               // usertype = (RadioButton)this.findViewById(type.getCheckedRadioButtonId())).getText().toString();
+                if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty() && !usertype.isEmpty()) {
+					registerUser(name, email, password,usertype);
 				} else {
 					Toast.makeText(getApplicationContext(),
 							"Please enter your details!", Toast.LENGTH_LONG)
 							.show();
 				}
+
 			}
 		});
 
@@ -101,13 +125,28 @@ public class RegisterActivity extends Activity {
 		});
 
 	}
-
+  /*  public String getType(View view) {
+    boolean checked = ((RadioButton) view).isChecked();
+    // Check which radio button was clicked
+    switch (view.getId()) {
+        case R.id.customer:
+            if (checked)
+                usertype = "customer";
+            break;
+        case R.id.vendor:
+            if (checked)
+                usertype = "vendor";
+            break;
+    }
+        return usertype;
+    }
+*/
 	/**
 	 * Function to store user in MySQL database will post params(tag, name,
 	 * email, password) to register url
 	 * */
 	private void registerUser(final String name, final String email,
-			final String password) {
+			final String password, final String usertype) {
 		// Tag used to cancel the request
 		String tag_string_req = "req_register";
 
@@ -129,15 +168,15 @@ public class RegisterActivity extends Activity {
 								// User successfully stored in MySQL
 								// Now store the user in sqlite
 								String uid = jObj.getString("uid");
-
 								JSONObject user = jObj.getJSONObject("user");
 								String name = user.getString("name");
 								String email = user.getString("email");
+                                String usertype= (String) user.get("usertype");
 								String created_at = user
 										.getString("created_at");
 
 								// Inserting row in users table
-								db.addUser(name, email, uid, created_at);
+								db.addUser(name, email, uid,usertype, created_at);
 
 								// Launch login activity
 								Intent intent = new Intent(
@@ -177,6 +216,7 @@ public class RegisterActivity extends Activity {
 				params.put("name", name);
 				params.put("email", email);
 				params.put("password", password);
+                params.put("usertype",usertype);
 
 				return params;
 			}
