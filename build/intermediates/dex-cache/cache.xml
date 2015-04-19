@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\classes-6bd0445a8985ebcb2a05ce1c6e8b03c798635183.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AppData\Local\Android\sdk2\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-88418cbc3741eb649d2997b9a654926ae7d43f05.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\classes-4c454055f972f4d25068f8edc1743f6ca9372d58.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-33fcb6bc1e597400279793eb0b3285a44f218f06.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\BPF\AndroidLoginAndRegistration\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\BPF\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-51e9dfbdeb0543b414b99fcd38f83b74873ba972.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\libs\volley.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\volley-f1bc511e9fa9d94544fe9622254ad29893055430.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\classes-6bd0445a8985ebcb2a05ce1c6e8b03c798635183.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\BPF\AndroidLoginAndRegistration\app\libs\volley.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\BPF\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\volley-1ee4f3488c07b3c321858a7f11bc8f57985317b9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\classes-4c454055f972f4d25068f8edc1743f6ca9372d58.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-33fcb6bc1e597400279793eb0b3285a44f218f06.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\BPF\AndroidLoginAndRegistration\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\BPF\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\classes-1d79748fd1f620c468c9e75d5db8f55f4c57e060.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\BPF\AndroidLoginAndRegistration\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\BPF\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\classes-f57219ab18dadc77ab9067e2a932f241c48d37ca.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AppData\Local\Android\sdk2\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-88418cbc3741eb649d2997b9a654926ae7d43f05.jar" />
+    </item>
+    <item
+        jar="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\libs\volley.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
+        <dex dex="C:\Users\Deema\AndroidStudioProjects\AndroidLoginAndRegistration\app\build\intermediates\pre-dexed\debug\volley-f1bc511e9fa9d94544fe9622254ad29893055430.jar" />
+    </item>
+
+</items>
