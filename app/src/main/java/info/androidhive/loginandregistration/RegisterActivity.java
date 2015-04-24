@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request.Method;
@@ -40,6 +41,7 @@ public class RegisterActivity extends Activity {
 	private EditText inputFullName;
 	private EditText inputEmail;
 	private EditText inputPassword;
+    private TextView usertypeinput;
 	private ProgressDialog pDialog;
 	private SessionManager session;
 	private SQLiteHandler db;
@@ -47,7 +49,11 @@ public class RegisterActivity extends Activity {
     private RadioButton vendor;
     private RadioButton customer;
     private int selectedValueId;
-	@Override
+    int pos;
+    int pos1;
+    RadioButton r1;
+
+    @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
@@ -55,12 +61,48 @@ public class RegisterActivity extends Activity {
 		inputFullName = (EditText) findViewById(R.id.name);
 		inputEmail = (EditText) findViewById(R.id.email);
 		inputPassword = (EditText) findViewById(R.id.password);
+        usertypeinput = (TextView) findViewById(R.id.usertypeinput);
+        usertypeinput.setVisibility(View.INVISIBLE);
 
 		btnRegister = (Button) findViewById(R.id.btnRegister);
 		btnLinkToLogin = (Button) findViewById(R.id.btnLinkToLoginScreen);
         type=(RadioGroup)findViewById(R.id.type);
-        vendor=(RadioButton)findViewById(R.id.vendor);
-        customer=(RadioButton)findViewById(R.id.customer);
+        r1=(RadioButton) findViewById(R.id.customer);
+        r1.setChecked(false);
+        type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // TODO Auto-generated method stub
+
+                //You can use any one of method...
+
+                // Method 1
+                pos=type.indexOfChild(findViewById(checkedId));
+
+                //Method 2
+                pos1=type.indexOfChild(findViewById(type.getCheckedRadioButtonId()));
+
+                switch (pos)
+                {
+                    case 0 :
+                        r1.setChecked(true);
+                        usertypeinput.setText("customer");
+                        break;
+                    case 1 :
+                        usertypeinput.setText("vendor");
+                        break;
+
+                    default :
+                        usertypeinput.setText("customer");
+                        break;
+                }
+            }
+        });
+
+
+       // vendor=(RadioButton)findViewById(R.id.vendor);
+       // customer=(RadioButton)findViewById(R.id.customer);
 
 		// Progress dialog
 		pDialog = new ProgressDialog(this);
@@ -87,21 +129,7 @@ public class RegisterActivity extends Activity {
 				String name = inputFullName.getText().toString();
 				String email = inputEmail.getText().toString();
 				String password = inputPassword.getText().toString();
-                String usertype="";
-                //getting the id of selected radio button
-                selectedValueId = type.getCheckedRadioButtonId();
-                //checking the id of the selected radio
-                if(selectedValueId == vendor.getId())
-                {
-                    usertype = "vendor";
-                }
-                else
-                {
-                    usertype ="customer";
-                }
-               /* Integer id = type.getId();
-                String usertype= id.toString();*/
-               // usertype = (RadioButton)this.findViewById(type.getCheckedRadioButtonId())).getText().toString();
+                String usertype = usertypeinput.getText().toString();
                 if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty() && !usertype.isEmpty()) {
 					registerUser(name, email, password,usertype);
 				} else {
@@ -125,22 +153,6 @@ public class RegisterActivity extends Activity {
 		});
 
 	}
-  /*  public String getType(View view) {
-    boolean checked = ((RadioButton) view).isChecked();
-    // Check which radio button was clicked
-    switch (view.getId()) {
-        case R.id.customer:
-            if (checked)
-                usertype = "customer";
-            break;
-        case R.id.vendor:
-            if (checked)
-                usertype = "vendor";
-            break;
-    }
-        return usertype;
-    }
-*/
 	/**
 	 * Function to store user in MySQL database will post params(tag, name,
 	 * email, password) to register url
@@ -171,12 +183,12 @@ public class RegisterActivity extends Activity {
 								JSONObject user = jObj.getJSONObject("user");
 								String name = user.getString("name");
 								String email = user.getString("email");
-                                String usertype= (String) user.get("usertype");
+                                String usertype=  user.getString("usertype");
 								String created_at = user
 										.getString("created_at");
 
 								// Inserting row in users table
-								db.addUser(name, email, uid,usertype, created_at);
+								db.addUser(name, email, uid, usertype , created_at);
 
 								// Launch login activity
 								Intent intent = new Intent(
